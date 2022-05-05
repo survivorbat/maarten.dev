@@ -21,16 +21,30 @@ body {
     font-size: 12vw;
 }
 
+.menu-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
 .menu-item {
-    font-size: 2.5em;
-    text-decoration: none;
+    display: flex;
+    justify-content: center;
+
+    font-size: 2.2em;
     background-color: black;
     padding: 8px;
-    color: white;
     font-weight: bold;
     border-radius: 5px;
+    text-align: center;
+    margin: 0.2em;
 
     transition: 200ms;
+}
+
+.menu-item a {
+    color: white;
+    text-decoration: none;
 }
 
 .menu-item:hover {
