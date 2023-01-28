@@ -23,7 +23,8 @@ body {
 
 .menu-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 0.8em;
     flex-wrap: wrap;
 }
 
@@ -31,13 +32,12 @@ body {
     display: flex;
     justify-content: center;
 
-    font-size: 2.2em;
+    font-size: 1.8em;
     background-color: black;
     padding: 8px;
     font-weight: bold;
     border-radius: 5px;
     text-align: center;
-    margin: 0.2em;
 
     transition: 200ms;
 }
