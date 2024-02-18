@@ -1,3 +1,3 @@
-# Homepage
+# Maarten.dev
 
-A bare-bones homepage for my projects.
+[maarten.dev](https://maarten.dev)
