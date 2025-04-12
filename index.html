@@ -22,50 +22,24 @@
 <body>
     <div>
         <h1>My Projects</h1>
-        <ul>
-            <li>
-                <a target="_blank" href="https://github.com/survivorbat">My Github</a>
-            </li>
-            <li>
-                <a target="_blank" href="https://github.com/survivorbat/go-bumpy">Bumpy</a>
-            </li>
-            <li>
-                <a target="_blank" href="https://github.com/ing-bank/ginerr">Gin Errors</a>
-            </li>
-            <li>
-                <a target="_blank" href="https://github.com/ing-bank/gohateoas">Go Hateoas</a>
-            </li>
-            <li>
-                <a target="_blank" href="https://github.com/ing-bank/gintestutil">Gin Test Utils</a>
-            </li>
-            <li>
-                <a target="_blank" href="https://github.com/ing-bank/gormtestutil">Gorm Test Utils</a>
-            </li>
-            <li>
-                <a target="_blank" href="https://lingo.maarten.dev">Lingo</a>
-            </li>
-            <li>
-                <a target="_blank" href="https://nono.maarten.dev">Nonogram</a>
-            </li>
-            <li>
-                <a target="_blank" href="https://whatsalyzer.com">Whatsalyzer</a>
-            </li>
-            <li>
-                <a target="_blank" href="https://is-this-us.com">Is this us?</a>
-            </li>
-            <li>
-                <a target="_blank" href="https://saurusify.maarten.dev">Saurusify</a>
-            </li>
-            <li>
-                <a target="_blank" href="https://rekengame.maarten.dev">Rekengame</a>
-            </li>
-            <li>
-                <a target="_blank" href="https://undefined.maarten.dev">Undefined (unfinished)</a>
-            </li>
-            <li>
-                <a target="_blank" href="https://text.maarten.dev">Text Game (unfinished)</a>
-            </li>
+        <ul id="list">
         </ul>
     </div>
+
+    <script>
+    const list = document.querySelector("#list")
+
+    fetch("https://api.github.com/users/survivorbat/repos?per_page=100")
+      .then((res) => res.json())
+      .then((res) => {
+        list.innerHTML = res
+          .filter((repo) => !repo.archived)
+          .map((repo) => `<li><a href="${repo.html_url}">${repo.name}</href></li>`)
+          .join("\n")
+      })
+      .catch((err) => {
+        list.innerText = `failed to retrieve data: ${err}`
+      })
+    </script>
 </body>
 </html>
