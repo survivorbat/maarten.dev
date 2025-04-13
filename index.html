@@ -34,7 +34,7 @@
       .then((res) => {
         list.innerHTML = res
           .filter((repo) => !repo.archived)
-          .map((repo) => `<li><a href="${repo.html_url}">${repo.name}</href></li>`)
+          .map((repo) => `<li><a href="${repo.html_url}">${repo.name}</a></li>`)
           .join("\n")
       })
       .catch((err) => {
